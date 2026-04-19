@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    overflow: hidden;
+    color: white;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#gallery {
+    position: relative;
+    height: 80vh;
+}
+
+/* Image style */
+.slide {
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    border-radius: 20px;
+    transition: 1s;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Active slide */
+.slide.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Blur background */
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 1s;
+}
+
+.bg.active {
+    opacity: 0.6;
+}
+
+/* Hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: red;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* Popup */
+/* LEFT SIDE POPUP */
+.love-popup {
+    position: fixed;
+    top: 50%;
+    left: -400px;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.95);
+    color: #ff4d6d;
+    padding: 25px;
+    border-radius: 0 20px 20px 0;
+    width: 300px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    animation: slideLeft 1s forwards;
+    z-index: 1000;
+}
+
+.love-popup h2 {
+    margin: 0 0 10px;
+}
+
+@keyframes slideLeft {
+    from { left: -400px; }
+    to { left: 0; }
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* 💎 Ultra Glass Card */
+.info-card {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 18px 22px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+
+    color: white;
+    text-align: right;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.3);
+
+    animation: fadeIn 1s ease;
+}
+
+/* Heading */
+.info-card h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Date */
+#date {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Timer */
+#timer {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Glow Border Animation */
+.info-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(45deg, #ff4d6d, #ff9a9e, #fad0c4);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: glow 3s linear infinite;
+}
+
+@keyframes glow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.rose {
+    position: fixed;
+    top: -10px;
+    animation: fallRose 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fallRose {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
